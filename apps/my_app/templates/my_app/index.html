@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HELLO</h1>
+ 
+<h2>Your Gold:</h2>
+            <h3>FARM</h3>
+            <h3>(earns 20-30 golds)</h3>
+            <form action="/processMoney" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="numGold" value="farmGold">
+                <input type="submit" value="FIND GOLD">
+            </form>
+            
+            <h3>CAVE</h3>
+            <h3>(earns 5-10 golds)</h3>
+            <form action ="/processMoney" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name= "numGold" value= "caveGold">
+                <input type="submit" value="FIND GOLD">
+            </form>
+
+            <h3>HOUSE</h3>
+            <h3>(earns 2-5 golds)</h3>
+            <form action="/processMoney" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="numGold" value="houseGold">
+                <input type="submit" value="FIND GOLD">
+            </form>
+            
+            <h3>CASINO</h3>
+            <h3>(earns/takes 1-50 golds)</h3>
+            <form action ="/processMoney" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name= "numGold" value= "casinoGold">
+                <input type="submit" value="FIND GOLD">
+            </form>  
+             <h4>activities:</h4>
+            <h3>Earned: {{request.session.totalGold}} golds form the {{request.session.location}}</h3> 
+
+        <form action="/reset" method="post">
+          {% csrf_token %}
+        <input type="submit" value="RESET">
+        </form>
+
+</body>
+</html>
